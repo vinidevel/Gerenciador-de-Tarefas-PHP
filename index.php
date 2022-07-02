@@ -1,62 +1,73 @@
-
-
 <?php session_start(); ?>
 
-<html>
-    <head>
-        <title> Gerenciador de Tarefas </title>
-    </head>
+<!DOCTYPE html>
+<html lang="pt-br">
 
-    <body>
-
-        <h1> Gerenciador de Tarefas </h1>
-
-        <form>
-    <fieldset>
-        <legend> Nova Tarefa </legend>
-            <label>
-                Tarefa:
-                <input type="text" name="nome" />
-            </label>
-            <input type="submit" value="Cadastrar" />
-    </fieldset>
-</form>   
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tarefas</title>
+    <link rel="stylesheet" href="style.css">
+</head>
 
 <?php
 
     
 
-    if (isset($_GET['nome'])) {
-        $_SESSION['lista_tarefas'][] = $_GET['nome'];
+if (isset($_GET['nome'])) {
+    $_SESSION['lista_tarefas'][] = $_GET['nome'];
 
-    }
+}
 
-    $lista_tarefas = array();
+$lista_tarefas = array();
 
-    if (isset($_SESSION['lista_tarefas'])) {
-        $lista_tarefas = $_SESSION['lista_tarefas'];
-    }
+if (isset($_SESSION['lista_tarefas'])) {
+    $lista_tarefas = $_SESSION['lista_tarefas'];
+}
 
 ?>
 
-<table>
+<body>
+
+    <header>
+        <h1> Gerenciador de Tarefas </h1>
+    </header>
+
+    <main>
+    <form>
+        <fieldset>
+            <legend> Nova Tarefa </legend>
+            <label>
+                Tarefa:
+                <input type="text" name="nome" />
+            </label>
+            <input type="submit" value="Cadastrar" />
+        </fieldset>
+    </form>
+
+    
+
+
+    <table>
         <tr>
-            <th> Tarefas </th> 
-        </tr>  
-        
-        <?php foreach($lista_tarefas as $tarefa) : ?> 
-            <tr>
-                <td><?php echo $tarefa;?></td>
-            </tr>
+            <th> Tarefas </th>
+        </tr>
+
+        <?php foreach($lista_tarefas as $tarefa) : ?>
+        <tr>
+            <td>
+                <?php echo $tarefa;?>
+            </td>
+        </tr>
         <?php endforeach; ?>
 
-    </table> 
+    </table>
 
-      
-    </body>        
+    </main>
+
+</body>
+
 </html>
-
-      
-
 
 
