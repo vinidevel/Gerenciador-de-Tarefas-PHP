@@ -42,7 +42,7 @@ if (isset($_SESSION['lista_tarefas'])) {
                 Tarefa:
                 <input type="text" name="nome" />
             </label>
-            <input type="submit" value="Cadastrar" />
+            <input id="botao" type="submit" value="Cadastrar" />
         </fieldset>
     </form>
 
